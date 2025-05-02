@@ -30,6 +30,8 @@ This project demonstrates a simple task dispatching system built with a microser
 docker-compose up --build
 ```
 
+(and wait until the queue_workers are set up - can take up to 5 minutes)
+
 ### 2. Submit a job
 
 ```bash
