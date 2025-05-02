@@ -58,6 +58,36 @@ curl http://localhost:8080/job/{job_id}
 
 - Ensure `queue_worker` starts **before** the first job is submitted. This guarantees the Kafka topic is created with the correct number of **partitions** (matching the number of workers).
 
-## Tests
+## Protocol Buffers (gRPC)
 
-I only wrote a few tests for the request_manager microservice which can be run via ``npm run test`` inside the request_manager folder.
+To generate TypeScript files from `.proto`, go into both **queue_worker** and **request_manager** folders and run:
+
+```bash
+npm install --save-dev ts-protoc-gen
+npm run proto
+```
+
+If you encounter issues, make sure the following are installed:
+
+```
+npm install --save-dev grpc-tools ts-protoc-gen @grpc/proto-loader
+```
+
+---
+
+## Running Tests
+
+To run the tests for `request_manager`:
+
+1. Ensure Jest and types are installed:
+
+```bash
+npm install --save-dev jest ts-jest @types/jest
+npx ts-jest config:init
+```
+
+2. Run the test suite:
+
+```bash
+npm run test
+```
