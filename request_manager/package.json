@@ -1,0 +1,41 @@
+{
+  "name": "request_manager",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && cp -r ./src/proto ./dist/proto",
+    "start": "KAFKAJS_NO_PARTITIONER_WARNING=1 node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "test": "jest",
+    "proto": "grpc_tools_node_protoc --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts --ts_out=grpc_js:src/proto --js_out=import_style=commonjs,binary:src/proto --grpc_out=grpc_js:src/proto --proto_path=../proto ../proto/job.proto"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@grpc/grpc-js": "^1.13.3",
+    "@grpc/proto-loader": "^0.7.15",
+    "@types/express": "^5.0.1",
+    "@types/google-protobuf": "^3.15.12",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.15.3",
+    "@types/supertest": "^6.0.3",
+    "grpc_tools_node_protoc_ts": "^5.3.3",
+    "grpc-tools": "^1.13.0",
+    "jest": "^29.7.0",
+    "supertest": "^7.1.0",
+    "ts-jest": "^29.3.2",
+    "ts-node": "^10.9.2",
+    "ts-proto": "^2.7.0",
+    "ts-protoc-gen": "^0.15.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2",
+    "google-protobuf": "^3.21.4",
+    "kafkajs": "^2.2.4",
+    "uuid": "^11.1.0"
+  }
+}

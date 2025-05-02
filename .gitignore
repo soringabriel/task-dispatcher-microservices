@@ -1,0 +1,13 @@
+# Ignore .env files
+**/.env
+
+# Ignore node_modules
+**/node_modules
+
+# Ignore build output directories
+**/dist
+
+# Ignore gRPC generated code
+**/proto/*.js
+**/proto/*.ts
+!**/proto/*.proto

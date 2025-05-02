@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package job;
+
+message Job {
+  string id = 1;
+  string job = 2;
+  int32 time = 3;
+  string status = 4;
+}
+
+service JobService {
+  rpc JobCompleted (Job) returns (Job);
+}
